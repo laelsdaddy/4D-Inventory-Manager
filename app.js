@@ -202,6 +202,43 @@ const deleteEntry = (nodeID) => {
 **************************************/
 const editEntry = (nodeID) => {
     if(e.target.id === 'edit_btn'){
+        //extract values from user
+        const editName = document.getElementById(DOMClasses.editName).value;
+        const editPrice = parseInt(document.getElementById(DOMClasses.editPrice).value);
+        const editQty = parseInt(document.getElementById(DOMClasses.editQuantity).value);
+
+
+        if(editName.length === 0 || editPrice.length === 0 || editQty.length === 0){
+            //confirm form fields are not empty
+            document.getElementById('modal_msg').textContent = 'Populate all fields before submitting...';
+            delayModalDisplay('');
+        }else{
+            //edit inventory item
+            let arr = inventory.values();
+
+            const itemToBeRemoved = arr.find((obj)=>{
+                if(obj.id == nodeID){
+                    return obj;
+                }
+            });
+
+            const editedProduct = {id: nodeID, name: editName, price: editPrice, quantity: editQty};
+
+            inventory.edit(itemToBeRemoved, editedProduct);
+            console.log(itemToBeRemoved, editedProduct);
+
+            //update UI
+            document.getElementById('modal_msg').textContent = 'successfully edited product';
+            document.getElementById(nodeID).children[0].textContent = nodeID;
+            document.getElementById(nodeID).children[1].textContent = edit_name;
+            document.getElementById(nodeID).children[2].textContent = edit_price;
+            document.getElementById(nodeID).children[3].textContent = edit_qty;
+
+            clearModalFields();
+        }
+
+            //remove modal from UI
+            setTimeout(function(){editInv.style.display = 'none'}, 2500);
 
     }else if(e.target.id === 'close_btn'){
         editInv.style.display = 'none';
