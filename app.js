@@ -1,10 +1,3 @@
-// const product = {
-//     ratings: "5 star",
-//     category: "Mens wears",
-//     info: {id: 101, name: "Jean Shirt", price: 45, quantity: 12}
-// };
-
-
 
 //Initialize Data Structure (set DS)
 function DataSet(){
@@ -35,6 +28,7 @@ function DataSet(){
         return false;
     };
     
+
     this.add = function(item){
         if(!this.has(item)){
             collection.push(item);
@@ -43,6 +37,7 @@ function DataSet(){
         return false;
     };
     
+
     this.edit = function(item, newItem){
         if(this.has(item)){
             const index = collection.indexOf(item);
@@ -86,15 +81,6 @@ class Product {
 ||                                      APP FUNCTIONS                               ||
 *************************************************************************************/
 
-/**************************************
-||        ADD INVENTORY FUNC         ||
-**************************************/
-// const addToInventory = (product)=>{
-//     inventory.add(product);
-//     document.getElementById('msg').textContent = 'Item successfully added to inventory!'; 
-// };
-
-
 
 /**************************************
 ||        CLEAR FIELDS  FUNC         ||
@@ -134,93 +120,6 @@ const delayModalDisplay = (msg) => {
 
 
 const displayEditModal = () => { document.querySelector('.edit_inv').style.display = 'block'; }
-
-
-/**************************************
-||           ADD ROW FUNC            ||
-**************************************/
-// const addRow = ()=>{
-//     let lastItem = inventory[inventory.length - 1];
-   
-//     let html = `<tr id='${lastItem.id}'>
-//                     <td>${lastItem.id}</td>
-//                     <td>${lastItem.name}</td>
-//                     <td>${lastItem.price}</td>
-//                     <td>${lastItem.quantity}</td>
-//                     <td><button id="edit_${lastItem.id}">EDIT</button><button id="del_${lastItem.id}">DELETE</button></td>
-//                 </tr>`; 
-//     document.querySelector('.display').lastChild.insertAdjacentHTML('afterend', html);
-
-    
-    
-/**************************************
-||    EVENT LISTENERS FOR REPORTS     ||
-***************************************/
-    
-// document.getElementById('reports_btn').addEventListener('click', () => {
-//     spoolReport();
-    
-//     displayTotals();
-// }
-
-// };
-
-
-/**************************************
-||   DISPLAY INVENTORY SUMMARY FUNC  ||
-**************************************/
-// const spoolReport = ()=>{
-//     //loop through inventory array and extract the various object keys and display same on the UI
-//     inventory.forEach((e)=>{
-//         let html = `<tr>
-//                         <td>${e.ID}</td>
-//                         <td>${e.form_name}</td>
-//                         <td>${e.form_price}</td>
-//                         <td>${e.form_quantity}</td>
-//                     </tr>`;
-//         document.querySelector('.reports').lastChild.insertAdjacentHTML('afterend', html);
-//     });            
-// };
-
-
-
-//Displaying totals in the report
-// const displayTotals = ()=>{
-
-//     //function for computing totals
-//     const totals = (category) => {
-    
-//         const categorySum = category.reduce((a, b)=>{
-//             return a + b;
-//         }, 0);
-
-//         return categorySum;
-//     };
-
-//     //Compute totals for price and quantity and display same on the UI
-//         //create an array with all price values
-//         const iPrice = inventory.values().map((e)=>{
-//             return e.price;
-//         });
-
-//         //create an array with all quantity values
-//         const iQuantity = inventory.values().map((e)=>{
-//             return e.quantity;
-//         });
-
-
-//         let newHtml = `
-//                 <tr class="totals">
-//                     <td>    ------------------------- </td>
-//                     <td>    ------------------------- </td>
-//                     <td>${totals(iPrice)}</td>
-//                     <td>${totals(iQuantity)}</td>
-//                 </tr>`;
-
-//         document.querySelector('.reports').lastChild.insertAdjacentHTML('afterend', newHtml);
-// };
-
-
 
 
 /**************************************
@@ -298,9 +197,6 @@ const deleteEntry = (nodeID) => {
 
 
 
-    
-
-
 /**************************************
 ||         EDIT PRODUCT FUNC         ||
 **************************************/
@@ -333,7 +229,6 @@ const editEntry = (nodeID) => {
                 inventory.edit(itemToBeRemoved, editedProduct); 
                 console.log(itemToBeRemoved);
                 console.log(editedProduct);
-                console.log(arr);
 
                 //update UI
                 document.getElementById('modal_msg').textContent = 'successfully edited product';
@@ -347,9 +242,9 @@ const editEntry = (nodeID) => {
                 //remove modal from UI
                 setTimeout(()=>{
                     editInv.style.display = 'none';
-                }, 3000);
+                }, 2500);
 
-                
+             
             }
 
         }else if(e.target.id === 'close_btn'){
@@ -373,8 +268,6 @@ const editEntry = (nodeID) => {
 *******************************************/
 
 document.getElementById('display_btn').addEventListener('click', addProduct);
-
-
 
 /**************************************
 ||   EVENT LISTENERS FOR EDIT & DEL   ||
