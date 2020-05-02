@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Inventory Manager</title>
+</head>   
+<body>
+    
+        <h3>4DS Inventory Manager</h3>
+        <div class="loginMsg"></div>
+
+        <form accept-charset="utf-8">
+            <!-- <input type="text" name="" id="product_id" placeholder="Product ID"/> <br> -->
+            <input type="text" id="product_name" placeholder="Product Name" /> <br>
+            <input type="number" id="product_price" placeholder="Product Price" /> <br>
+            <input type="number" id="product_quantity" placeholder="Product Quantity" /> <br>
+            <input type="button" id="display_btn" class= "add_btn" value="Add to Inventory" />
+            <div id="msg"></div>
+        </form>
+
+    
+        <br><br>
+
+        <div class="edit_inv">
+            <form>
+                <input type="text" id="edit_name" placeholder="Product Name" /> <br>
+                <input type="number" id="edit_price" placeholder="Product Price" /> <br>
+                <input type="number" id="edit_qty" placeholder="Product Quantity" /> <br>
+                <button id="edit_btn">edit</button>
+                <button id="close_btn">close</button>
+            </form>
+            <div id="modal_msg"></div>
+        </div>
+
+        <h4>Inventory List</h4>
+        <div class="tblwrap">
+            <table class="display">
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>ACTION</th>
+                </tr>
+
+                <!-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> -->   
+            </table>
+        </div>
+
+
+        <br><br>
+        <button class="add_btn" id="reports_btn">Generate Inventory Report</button>
+        
+            <table class="reports" id="report_d">
+                <!-- <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                </tr> -->
+        
+                <!-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> -->   
+            </table>
+    
+
+    <script src="app.js"></script>  
+</body>
+</html>

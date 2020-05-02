@@ -1,0 +1,27 @@
+{
+  "name": "inventory-app",
+  "version": "1.0.0",
+  "description": "4d Scripting Inventory Manager",
+  "main": "app.js",
+  "scripts": {
+    "install": "npm-git-install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laelsdaddy/Inventory-App.git"
+  },
+  "keywords": [
+    "4D",
+    "Scripting",
+    "Inventory"
+  ],
+  "author": "Chieloka Ifionu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laelsdaddy/Inventory-App/issues"
+  },
+  "homepage": "https://github.com/laelsdaddy/Inventory-App#readme",
+  "dependencies": {
+    "git": "^0.1.5"
+  }
+}
