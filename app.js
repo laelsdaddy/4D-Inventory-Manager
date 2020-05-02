@@ -401,6 +401,7 @@ if(tblwrap){
             console.log(nodeID);
             //display edit modal
             document.querySelector('.edit_inv').style.display = 'block';
+            displayEditModal();
             editEntry(nodeID);
             console.log(inventory.values());    
 
