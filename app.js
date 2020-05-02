@@ -118,8 +118,8 @@ const delayModalDisplay = (msg) => {
     }, 2000);
 }
 
-
-const displayEditModal = () => { document.querySelector('.edit_inv').style.display = 'block'; }
+const editInv = document.querySelector('.edit_inv');
+const displayEditModal = () => {editInv.style.display = 'block'; }
 
 
 /**************************************
@@ -201,60 +201,12 @@ const deleteEntry = (nodeID) => {
 ||         EDIT PRODUCT FUNC         ||
 **************************************/
 const editEntry = (nodeID) => {
-    //setup event listener for save & close
-    document.querySelector('.edit_inv').addEventListener('click', (e) => {
-        if(e.target.id === 'edit_btn'){
-            //extract values from user
-            const edit_name = document.getElementById(DOMClasses.editName).value;
-            const edit_price = parseInt(document.getElementById(DOMClasses.editPrice).value);
-            const edit_qty = parseInt(document.getElementById(DOMClasses.editQuantity).value);
+    if(e.target.id === 'edit_btn'){
 
-            //check if fields are empty
-            if(edit_name.length === 0 || edit_price.length === 0 || edit_qty === 0){
-                document.getElementById('modal_msg').textContent = 'Populate all fields before submitting...';
-                delayModalDisplay('');
-            }else{
-                //edit operation
-                //const editedProduct = new Product(nodeID, edit_name, edit_price, edit_qty);
-                const editedProduct = {id: nodeID, name: edit_name, price: edit_price, quantity: edit_qty};
-
-                //loop thru inventory to select IDs for comparison
-                let arr = inventory.values();  //returns the inventory array
-                const itemToBeRemoved = arr.find((e) => {
-                    if(e.id === nodeID){
-                        return e;
-                    }
-                });
-
-                inventory.edit(itemToBeRemoved, editedProduct); 
-                console.log(itemToBeRemoved);
-                console.log(editedProduct);
-
-                //update UI
-                document.getElementById('modal_msg').textContent = 'successfully edited product';
-                document.getElementById(nodeID).children[0].textContent = nodeID;
-                document.getElementById(nodeID).children[1].textContent = edit_name;
-                document.getElementById(nodeID).children[2].textContent = edit_price;
-                document.getElementById(nodeID).children[3].textContent = edit_qty;
-
-                clearModalFields();
-
-                //remove modal from UI
-                setTimeout(()=>{
-                    editInv.style.display = 'none';
-                }, 2500);
-
-             
-            }
-
-        }else if(e.target.id === 'close_btn'){
-            editInv.style.display = 'none';
-        }
-
-    });
-
-};
-
+    }else if(e.target.id === 'close_btn'){
+        editInv.style.display = 'none';
+    }
+}
 
 
 
@@ -287,7 +239,9 @@ if(tblwrap){
             console.log(nodeID);
             //display edit modal
             displayEditModal();
-            editEntry(nodeID);
+            if(editInv){
+                document.querySelector('.edit_inv').addEventListener('click', editEntry);
+            }
             console.log(inventory.values());    
 
         }else if(e.target.id === del){
