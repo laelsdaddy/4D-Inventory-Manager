@@ -5,11 +5,6 @@
 // };
 
 
-// const inventory = [];
-// inventory.push(product);
-
-
-
 
 //Initialize Data Structure (set DS)
 function DataSet(){
@@ -31,14 +26,12 @@ function DataSet(){
     };
     
     
-    
     this.remove = function(item){
         if(this.has(item)){
             const index = collection.indexOf(item);
             collection.splice(index, 1);
             return true;
         }
-        
         return false;
     };
     
@@ -47,7 +40,6 @@ function DataSet(){
             collection.push(item);
             return true;
         }
-        
         return false;
     };
     
@@ -57,9 +49,8 @@ function DataSet(){
             collection.splice(index, 1, newItem);
             return true;
         }
-
         return false;
-        };
+    };
     
 }
     
@@ -141,6 +132,8 @@ const delayModalDisplay = (msg) => {
     }, 2000);
 }
 
+
+const displayEditModal = () => { document.querySelector('.edit_inv').style.display = 'block'; }
 
 
 /**************************************
@@ -400,7 +393,6 @@ if(tblwrap){
         if(e.target.id === edit){
             console.log(nodeID);
             //display edit modal
-            document.querySelector('.edit_inv').style.display = 'block';
             displayEditModal();
             editEntry(nodeID);
             console.log(inventory.values());    
@@ -419,7 +411,7 @@ if(tblwrap){
 
 
 
-
+//https://github.com/laelsdaddy/Inventory-App.git
 
 
 
